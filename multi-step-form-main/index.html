@@ -33,15 +33,21 @@
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       width: 100%;
-      height: auto; /* Adjust the height as needed */
+      height: 560px; /* Adjust the height as needed */
+
     }
 
     .sidebar {
+      border-radius: 10px ;
       background-color: #f4f4f4;
       width: 250px;
       padding: 12px;
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
       background-image: url('./assets/images/bg-sidebar-desktop.svg');
+    }
+
+    .stepName{
+      display: block;
     }
 
     .sidebar ul {
@@ -56,7 +62,7 @@
       align-items: flex-start;
       font-family: 'Ubuntu-Bold';
     }
-    .sidebar ul li .circle {
+    .circle {
       background-color: rgba(255, 255, 255, 0.2);
       color: white;
       border-radius: 50%;
@@ -80,7 +86,6 @@
       text-decoration: none;
       font-size: 18px;
       color: hsl(0, 0%, 100%);
-      display: block;
     }
 
     .sidebar ul li a:hover {
@@ -89,12 +94,14 @@
 
     .main-content {
       flex-grow: 1;
-      padding: 40px;
+      padding: 10px;
       background-color: #fff;
     }
 
     h2 {
       margin-bottom: 10px;
+      color:hsl(213, 96%, 18%);
+      font-size: 36px;
     }
 
     .form-step {
@@ -112,14 +119,19 @@
       display: block;
       margin-bottom: 8px;
       font-weight: bold;
+      color:hsl(213, 96%, 18%);
     }
 
     input {
-      width: 100%;
-      padding: 8px;
+     
+     
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      padding: 15px;
+      color: hsl(213, 96%, 18%);
+     
+
     }
 
     input:invalid {
@@ -140,7 +152,7 @@
 
     .btn {
       display: inline-block;
-      background-color: hsl(243, 100%, 62%); /* Purplish blue */
+      background-color: hsl(213, 96%, 18%); /* Purplish blue */
       color: white;
       padding: 10px 20px;
       text-align: center;
@@ -156,18 +168,23 @@
     .step-buttons {
       display: flex;
       justify-content: flex-end;
+      padding: 70px;
       
       
     }
 
     .step-buttons .btn {
-      margin-top: 10px;
+      margin-top: 20px;
+      padding: 15px;
       
     }
 
     /* Mobile responsive */
     @media (max-width: 375px) {
 
+      .stepName{
+        display: none;
+      }
 
       .all-content {
        flex-direction: column;
@@ -189,7 +206,7 @@
        width: 93%;
        box-shadow: none;
        padding: 10px;
-       border-radius: 10px;
+       border-radius: 10px ;
       }
 
       .main-content {
@@ -206,13 +223,14 @@
     margin: 10px; /* Adjust spacing between items */
   }
 
-  .form-step {
+  .form-step  {
     padding: 0;
-   color:hsl(213, 96%, 18%);
+   
   }
 
   .step-buttons {
     justify-content: center; /* Center the button on smaller screens */
+    
   }
     }
     
@@ -226,10 +244,10 @@
 <!-- Sidebar start -->
 <div class="sidebar">
   <ul>
-    <li class="active"><span class="circle">1</span><a href="#"><span class="step-title">Step 1</span><br>Your info</a></li>
-    <li><span class="circle">2</span><a href="#"><span class="step-title">Step 2</span><br>Select plan</a></li>
-    <li><span class="circle">3</span><a href="#"><span class="step-title">Step 3</span><br>Add-ons</a></li>
-    <li><span class="circle">4</span><a href="#"><span class="step-title">Step 4</span><br>Summary</a></li>
+    <li class="active"><span class="circle">1</span><a class="stepName" href="#"><span class="step-title">Step 1</span><br>Your info</a></li>
+    <li><span class="circle">2</span><a class="stepName" href="#"><span class="step-title">Step 2</span><br>Select plan</a></li>
+    <li><span class="circle">3</span><a class="stepName" href="#"><span class="step-title">Step 3</span><br>Add-ons</a></li>
+    <li><span class="circle">4</span><a class="stepName" href="#"><span class="step-title">Step 4</span><br>Summary</a></li>
   </ul>
 </div>
 <!-- Sidebar end -->
@@ -244,14 +262,14 @@
 
 
         
-        <label for="name">Name</label>
+        <label for="name" >Name</label>
         <input type="text" id="name" placeholder="e.g. Selma Alb" >
         
-        <label for="email">Email Address</label>
+        <label for="email" >Email Address</label>
         <input type="email" id="email" placeholder="e.g. selma@lorem.com" >
         
         
-        <label for="phone">Phone Number</label>
+        <label for="phone" >Phone Number</label>
         <input type="tel" id="phone" placeholder="e.g. +90 234 567 890" required>
         <span class="warning">This field is required</span>
 
