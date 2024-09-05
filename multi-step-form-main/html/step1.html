@@ -23,25 +23,22 @@
         
         <div class="sidebar">
             <ul class="steps">
-                <li class="active">
+                <li class="step" id="step1">
                     <span class="circle">1</span>
                     <a class="stepName" href="#"><span class="step-title">STEP 1</span><br>YOUR INFO</a>
-                        
                 </li>
-                
-                <li>
+                <li class="step" id="step2">
                     <span class="circle">2</span>
-                    <a class="stepName" href="./../html/step2.html"><span class="step-title">STEP 2</span><br>SELECT PLAN</a>
+                    <a class="stepName" href="#"><span class="step-title">STEP 2</span><br>SELECT PLAN</a>
                 </li>
-
-                <li>
-                    <span class="circle">3</span><a class="stepName" href="#"><span class="step-title">STEP 3</span><br>ADD-ON</a>
-                        
+                <li class="step" id="step3">
+                    <span class="circle">3</span>
+                    <a class="stepName" href="#"><span class="step-title">STEP 3</span><br>ADD-ON</a>
                 </li>
-
-                <li><span class="circle">4</span><a class="stepName" href="#"><span class="step-title">STEP 4</span><br>SUMMARY</a>
+                <li class="step" id="step4">
+                    <span class="circle">4</span>
+                    <a class="stepName" href="#"><span class="step-title">STEP 4</span><br>SUMMARY</a>
                 </li>
-
             </ul>
         </div>
 
@@ -54,10 +51,10 @@
 
                 <form>
                     <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Vanessa Mint">
+                    <input type="text" id="name" placeholder="Vanessa Mint" required>
 
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="Vanessamint@">
+                    <input type="email" id="email" placeholder="Vanessamint@" required>
 
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" placeholder="e.g. +90 234 567 077" required>
@@ -71,6 +68,41 @@
 
 
     </div>
+
+    <script>
+        // Geting  the step elements
+        const steps = document.querySelectorAll('.sidebar .step');
+
+        // Function to highlight the active step
+        function setActiveStep(stepNumber) {
+            steps.forEach((step, index) => {
+                if (index === stepNumber - 1) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+        }
+
+        // Initially highlight the first step
+        setActiveStep(1);
+
+        // Add click event to the "Next Step" button
+        document.getElementById('nextStep').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent form submission
+            // Get the current active step
+            let activeStep = document.querySelector('.step.active');
+            let activeStepNumber = Array.from(steps).indexOf(activeStep) + 1;
+
+            // If it's not the last step, go to the next step
+            if (activeStepNumber < steps.length) {
+                setActiveStep(activeStepNumber + 1);
+            } else {
+                // If it's the last step, you could submit the form or redirect
+                window.location.href = "./../html/step2.html";
+            }
+        });
+    </script>
 
 </body>
 

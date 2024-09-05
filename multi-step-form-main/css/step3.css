@@ -177,47 +177,76 @@ body {
 .card-list {
     list-style-type: none;
     padding: 0;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     justify-content: center;
- 
-    
 }
 
 .card {
    
-    flex: 1;
+    /* flex: 1; */
+    border:  2px solid red;
     border-radius: 10px;
-    padding: 10 px;
+    padding: 10px 10px 10px 50px;
     background-color: hsl(217, 100%, 97%);
-    border: 1px solid hsl(231, 11%, 63%);
-    /* Default grey border */
-    text-align: center;
+    /* border: 1px solid hsl(231, 11%, 63%); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     transition: border-color 0.3s ease;
-    /* Smooth transition */
+    position: relative;
 }
 
 .benefits {
     display: flex;
-    flex-direction: column;
-    
+    align-items: center;
+   
 }
- .card .price p {
-    color: hsl(243, 100%, 62%);
+.benefit-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between checkbox and benefit info */
 }
 
-.card-list .benefits h3 {
+.benefit-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+
+.price {
+    font-size: 16px;
+    color: hsl(243, 100%, 62%);
+    text-align: right;
+    white-space: nowrap;
+    
+}
+
+.benefits-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* margin-left: 3rem; */
+}
+
+.benefits-info h3 {
     margin: 0;
     font-size: 16px;
     color: hsl(213, 96%, 18%);
 }
 
-.card-list .benefits p {
+.benefits-info p {
+    margin: 0;
     font-size: 14px;
     color: #666;
-    margin: 0;
-    
+}
+
+.card-checkbox {
+    position: absolute;
+    left: 10px;
+    margin-right: 10px;
 }
 
 
@@ -226,9 +255,7 @@ body {
 .card-list .card:hover,
 .card-list .card:focus-within {
     border-color: hsl(243, 100%, 62%);
-    /* Change border color on hover or focus */
 }
-
 
 
 .card-list .card h3 {

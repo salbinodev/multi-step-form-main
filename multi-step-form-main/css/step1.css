@@ -81,11 +81,9 @@ body {
     
 }
 
-.sidebar ul li.active .circle {
-    background-color: white;
-    color: hsl(243, 100%, 62%);
-    border: none;
-        
+.active .circle {
+    background-color: hsl(243, 100%, 62%);
+    color: white;
 }
 
 .sidebar ul li a {
