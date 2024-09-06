@@ -59,24 +59,24 @@
                 <li class="card">
                     <img src="./../assets/images/icon-arcade.svg" alt="Arcade Icon" class="card-icon">
                     <h3>Arcade</h3>
-                    <p>$9/mo</p>
+                    <p class="price" data-monthly="$9/mo" data-yearly="$90/yr">$9/mo</p>
                 </li>
                 <li class="card">
                     <img src="./../assets/images/icon-advanced.svg" alt="Advanced Icon" class="card-icon">
                     <h3>Advanced</h3>
-                    <p>$12/mo</p>
+                    <p class="price" data-monthly="$12/mo" data-yearly="$120/yr">$12/mo</p>
                 </li>
                 <li class="card">
-                    <img src="./../assets/images/icon-pro.svg" alt="Advanced Icon" class="card-icon">
+                    <img src="./../assets/images/icon-pro.svg" alt="Pro Icon" class="card-icon">
                     <h3>Pro</h3>
-                    <p>$15/mo</p>
+                    <p class="price" data-monthly="$15/mo" data-yearly="$150/yr">$15/mo</p>
                 </li>
             </ul>
 
             <div class="billing-toggle">
                 <span class="billing-option">Monthly</span>
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" id="billingToggle">
                     <span class="slider"></span>
                 </label>
                 <span class="billing-option">Yearly</span>
@@ -89,9 +89,26 @@
 
         </div>
 
-
-
     </div>
+
+    <script>
+        const billingToggle = document.getElementById('billingToggle');
+        const prices = document.querySelectorAll('.price');
+
+        billingToggle.addEventListener('change', function () {
+            if (billingToggle.checked) {
+                // Switch to yearly pricing
+                prices.forEach(price => {
+                    price.textContent = price.getAttribute('data-yearly');
+                });
+            } else {
+                // Switch to monthly pricing
+                prices.forEach(price => {
+                    price.textContent = price.getAttribute('data-monthly');
+                });
+            }
+        });
+    </script>
 
 </body>
 

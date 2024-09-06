@@ -59,7 +59,7 @@
 
                 <label for="phone">Phone Number</label>
                 <input type="tel" id="phone" placeholder="e.g. +90 234 567 077" required>
-                <span class="warning">This field is required</span>
+                <span class="warning">This field is required!</span>
 
                 <!-- Next Step Button -->
                 <a href="#" class="btn" id="nextStep">Next Step</a>
@@ -70,11 +70,10 @@
 
     <!-- JavaScript -->
     <script>
-        // Sidebar Steps
+        
         const steps = document.querySelectorAll('.sidebar .step');
-        let currentStep = 1;  // Start at step 1
+        let currentStep = 1; 
 
-        // Function to highlight the active step
         function setActiveStep(stepNumber) {
             steps.forEach((step, index) => {
                 if (index === stepNumber - 1) {
@@ -85,27 +84,24 @@
             });
         }
 
-        // Highlight first step by default
         setActiveStep(currentStep);
 
-        // Get the form and "Next Step" button
+        
         const form = document.getElementById('personalInfoForm');
         const nextStepBtn = document.getElementById('nextStep');
 
-        // Add click event listener for the "Next Step" button
         nextStepBtn.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent form submission
+      
 
             // Validate the form fields
             if (validateForm()) {
-                // Move to the next step if the form is valid
+                // Move to the next step 
                 if (currentStep < steps.length) {
                     currentStep++;
                     setActiveStep(currentStep);
                 } else {
                     // If all steps are completed, go to the next page
-                    window.location.href = "./../html/step2.html";
-                }
+                   window.location.href = "step2.html";              }
             } else {
                 alert('Please fill in all required fields before proceeding.');
             }
@@ -123,7 +119,7 @@
 
             // Optionally, add email and phone validation
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const phonePattern = /^[0-9]{10,15}$/;
+            const phonePattern = /^\+?[0-9]{10,15}$/;
 
             if (!emailPattern.test(email)) {
                 alert('Please enter a valid email address.');

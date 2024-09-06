@@ -92,15 +92,27 @@
     </ul>
 
     <div class="buttons">
-        <a href="#" class="go-back">Go Back</a>
+        <a href="./step2.html" class="go-back">Go Back</a>
         <a href="#" class="btn">Next Step</a>
     </div>
-</div>
-
-
-
+ </div>
 
     </div>
+    
+    <script>
+        const planCards = document.querySelectorAll('.card');
+
+            planCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    // Remove 'active' class from all cards
+                    planCards.forEach(card => card.classList.remove('active'));
+
+                    // Add 'active' class to the clicked card
+                    this.classList.add('active');
+                });
+            });
+
+    </script>
 
 </body>
 
