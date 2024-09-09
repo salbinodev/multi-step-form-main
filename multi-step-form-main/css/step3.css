@@ -131,8 +131,7 @@ body {
 
 .main-content p {
     color: hsl(231, 11%, 63%);
-    margin-bottom: 15px;
-    margin-top: 2px;
+    
 }
 
 .buttons {
@@ -184,21 +183,44 @@ body {
 }
 
 
-.benefits-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    /* margin-left: 3rem; */
+.card {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
 }
 
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.benefit-checkbox {
+    padding-right: 15px; 
+}
+
+.benefits-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px; /* Space between heading and paragraph */
+}
+
+.price {
+    font-weight: bold;
+    flex-shrink: 0; 
+    color: hsl(213, 96%, 18%);
+}
+
+
 .benefits-info h3 {
-    margin: 0;
+    
     font-size: 16px;
     color: hsl(213, 96%, 18%);
 }
 
 .benefits-info p {
-    margin: 0;
+    margin-top: 0;
     font-size: 14px;
     color: #666;
 }
@@ -206,45 +228,21 @@ body {
 .card-checkbox {
     position: absolute;
     left: 10px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
-.card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: hsl(217, 100%, 97%);
-    border: 2px solid #666;
-    border-radius: 10px;
-    gap: 20px;
-    /* Add some space between the benefit-checkbox and price */
-}
 
-.benefit-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    /* Space between checkbox and benefits info */
-}
+
+
 
 .benefits {
     flex-grow: 1;
     /* Ensure the benefits info takes up available space */
 }
 
-.benefits-info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    /* Fine-tune the space inside the benefits info */
-}
 
-.price {
-    font-size: 16px;
-    color: hsl(243, 100%, 62%);
-   
-}
+
+
 
 
 
@@ -255,14 +253,15 @@ body {
 
 
 .card-list .card h3 {
-    margin-bottom: 10px;
+    gap: 1rem;
     font-size: 14px;
     color: hsl(213, 96%, 18%);
+    margin-bottom: 3px;
 }
 
 .card-list .card p {
-    font-size: 12px;
-    color: #666;
+    padding-right: 12px;
+    color: hsl(213, 96%, 18%);
 }
 
 

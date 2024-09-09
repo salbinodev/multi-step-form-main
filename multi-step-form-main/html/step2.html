@@ -86,7 +86,7 @@
         const prices = document.querySelectorAll('.price');
         let selectedPlan = '';
         let billingPeriod = 'monthly'; // Default to monthly
-
+    
         // Toggle between monthly and yearly prices
         billingToggle.addEventListener('change', function () {
             if (billingToggle.checked) {
@@ -101,7 +101,7 @@
                 });
             }
         });
-
+    
         // Plan selection
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('click', function () {
@@ -110,20 +110,21 @@
                 selectedPlan = this.getAttribute('data-plan');
             });
         });
-
+    
         // Next Step button click event
         const nextStepBtn = document.getElementById('nextStep');
         nextStepBtn.addEventListener('click', function () {
             if (selectedPlan) {
-                // If a plan is selected, redirect to step3.html
-                console.log(`Selected plan: ${selectedPlan}, Billing period: ${billingPeriod}`);
-                window.location.href = './step3.html';
+                // Store the selected plan and billing period in localStorage
+                localStorage.setItem('selectedPlan', selectedPlan);
+                localStorage.setItem('billingPeriod', billingPeriod);
+                window.location.href = './step3.html'; // Redirect to step 3
             } else {
                 alert('Please select a plan before proceeding.');
             }
         });
     </script>
-
+    
 </body>
 
 </html>

@@ -58,45 +58,62 @@
 
         <div class="receipt">
         
-            <div class="summary-bg">
-                <div id="summary">
-                  
-                    <div class="plan-summary">
-                        <h3>Arcade (Yearly)</h3>
-                        <span>$90/yr</span>
-                    </div>
-                    <hr>
-        
-                  
-                    <div class="addon-summary">
-                        <p>Online Service</p>
-                        <span>+ $10/yr</span>
-                    </div>
-                    <div class="addon-summary">
-                        <p>Larger Storage</p>
-                        <span>+ $20/yr</span>
-                    </div>
-                </div>
-            </div>
-        
-           
-            <div id="total">
-               
-                <div class="total-summary">
-                    <p>Total (per year)</p>
-                    <span>$120/yr</span>
-                </div>
-            </div>
+            <div id="summary" class="summary-bg"></div>
+            <div id="total"></div>
         </div>
 
      
 
             <div class="buttons">
-                <a href="./step2.html" class="go-back">Go Back</a>
+                <a href="./step3.html" class="go-back">Go Back</a>
                 <a href="#" class="btn">Confirm</a>
             </div>
             </div>
     </div>
+
+    <script>
+        // Retrieve the selected add-ons from localStorage
+        const selectedAddOns = JSON.parse(localStorage.getItem('selectedAddOns')) || [];
+
+        // Variables for the summary and total elements
+        const summaryContainer = document.getElementById('summary');
+        const totalContainer = document.getElementById('total');
+
+        // Set the base plan (Arcade) price
+        const basePrice = 90; // Assuming $90/yr for Arcade Plan
+        let totalPrice = basePrice;
+
+        // Function to display selected add-ons
+        function displaySelectedAddOns() {
+            if (selectedAddOns.length > 0) {
+                selectedAddOns.forEach(addOn => {
+                    // Create a new div for each add-on
+                    const addOnElement = document.createElement('div');
+                    addOnElement.classList.add('addon-summary');
+                    addOnElement.innerHTML = `<p>${addOn.title}</p><span>${addOn.price}</span>`;
+                    summaryContainer.appendChild(addOnElement);
+
+                    // Extract numerical value from the price and add it to the total price
+                    const priceValue = parseFloat(addOn.price.replace(/[^\d.]/g, ''));
+                    totalPrice += priceValue;
+                });
+            }
+        }
+
+        // Function to display the total price
+        function displayTotalPrice() {
+            totalContainer.innerHTML = `
+                <div class="total-summary">
+                    <p>Total (per year)</p>
+                    <span>$${totalPrice}/yr</span>
+                </div>
+            `;
+        }
+
+        // Call functions to display the add-ons and total price
+        displaySelectedAddOns();
+        displayTotalPrice();
+    </script>
 
 </body>
 
