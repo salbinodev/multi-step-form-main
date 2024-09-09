@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
     <link rel="stylesheet" href="./../css/step2.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-   
+
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <title>Multi-step form</title>
-
-
-
 </head>
 
 <body>
@@ -23,50 +19,46 @@
 
         <div class="sidebar">
             <ul class="steps">
-                <li >
+                <li>
                     <span class="circle">1</span>
                     <a class="stepName" href="./../html/step1.html"><span class="step-title">STEP 1</span><br>YOUR INFO</a>
-
                 </li>
 
                 <li class="active">
                     <span class="circle">2</span>
-                    <a class="stepName" href="#"><span class="step-title">STEP 2</span><br>SELECT PLAN</a>
+                    <a class="stepName" href="./../html/step2.html"><span class="step-title">STEP 2</span><br>SELECT PLAN</a>
                 </li>
 
                 <li>
-                    <span class="circle">3</span><a class="stepName" href="#"><span class="step-title">STEP
-                            3</span><br>ADD-ON</a>
-
+                    <span class="circle">3</span>
+                    <a class="stepName" href="./../html/step3.html"><span class="step-title">STEP 3</span><br>ADD-ON</a>
                 </li>
 
-                <li><span class="circle">4</span><a class="stepName" href="#"><span class="step-title">STEP
-                            4</span><br>SUMMARY</a>
+                <li>
+                    <span class="circle">4</span>
+                    <a class="stepName" href="./../html/step5.html"><span class="step-title">STEP 4</span><br>SUMMARY</a>
                 </li>
-
             </ul>
         </div>
-
 
         <div class="main-content">
             <div class="header">
                 <h2>Select your Plan</h2>
-                <p>you have the option of monthly or yearly billing</p>
+                <p>You have the option of monthly or yearly billing.</p>
             </div>
 
-
             <ul class="card-list">
-                <li class="card">
+                <li class="card" data-plan="arcade">
                     <img src="./../assets/images/icon-arcade.svg" alt="Arcade Icon" class="card-icon">
                     <h3>Arcade</h3>
                     <p class="price" data-monthly="$9/mo" data-yearly="$90/yr">$9/mo</p>
                 </li>
-                <li class="card">
+                <li class="card" data-plan="advanced">
                     <img src="./../assets/images/icon-advanced.svg" alt="Advanced Icon" class="card-icon">
                     <h3>Advanced</h3>
                     <p class="price" data-monthly="$12/mo" data-yearly="$120/yr">$12/mo</p>
                 </li>
-                <li class="card">
+                <li class="card" data-plan="pro">
                     <img src="./../assets/images/icon-pro.svg" alt="Pro Icon" class="card-icon">
                     <h3>Pro</h3>
                     <p class="price" data-monthly="$15/mo" data-yearly="$150/yr">$15/mo</p>
@@ -84,28 +76,50 @@
 
             <div class="buttons">
                 <a href="./../html/step1.html" class="go-back">Go Back</a>
-                <a href="./../html/step3.html" class="btn">Next Step</a>
+                <button class="btn" id="nextStep">Next Step</button>
             </div>
-
         </div>
-
     </div>
 
     <script>
         const billingToggle = document.getElementById('billingToggle');
         const prices = document.querySelectorAll('.price');
+        let selectedPlan = '';
+        let billingPeriod = 'monthly'; // Default to monthly
 
+        // Toggle between monthly and yearly prices
         billingToggle.addEventListener('change', function () {
             if (billingToggle.checked) {
-                // Switch to yearly pricing
+                billingPeriod = 'yearly'; // Switch to yearly
                 prices.forEach(price => {
                     price.textContent = price.getAttribute('data-yearly');
                 });
             } else {
-                // Switch to monthly pricing
+                billingPeriod = 'monthly'; // Switch to monthly
                 prices.forEach(price => {
                     price.textContent = price.getAttribute('data-monthly');
                 });
+            }
+        });
+
+        // Plan selection
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function () {
+                document.querySelectorAll('.card').forEach(c => c.classList.remove('selected')); // Remove selected class from all
+                this.classList.add('selected'); // Add selected class to clicked card
+                selectedPlan = this.getAttribute('data-plan');
+            });
+        });
+
+        // Next Step button click event
+        const nextStepBtn = document.getElementById('nextStep');
+        nextStepBtn.addEventListener('click', function () {
+            if (selectedPlan) {
+                // If a plan is selected, redirect to step3.html
+                console.log(`Selected plan: ${selectedPlan}, Billing period: ${billingPeriod}`);
+                window.location.href = './step3.html';
+            } else {
+                alert('Please select a plan before proceeding.');
             }
         });
     </script>
