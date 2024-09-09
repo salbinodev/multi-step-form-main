@@ -47,72 +47,56 @@
 
             </ul>
         </div>
-<div class="main-content">
-    <div class="header">
-        <h2>Pick add-ons</h2>
-        <p>Add-ons help enhance your gaming experience</p>
-    </div>
 
-    <ul class="card-list">
-        <li class="card">
-            <label class="benefit-checkbox">
-                <input type="checkbox">
-            <div class="benefits">
-                <div class="benefits-info">
-                    <h3>Online Service</h3>
-                    <p>Access to multiplayer games</p>
+
+      <div class="main-content">
+            <div class="header">
+                <h2>Finishing Up</h2>
+                <p>Double-check everything looks OK before confirming</p>
+            </div>
+       
+
+        <div class="receipt">
+        
+            <div class="summary-bg">
+                <div id="summary">
+                  
+                    <div class="plan-summary">
+                        <h3>Arcade (Yearly)</h3>
+                        <span>$90/yr</span>
+                    </div>
+                    <hr>
+        
+                  
+                    <div class="addon-summary">
+                        <p>Online Service</p>
+                        <span>+ $10/yr</span>
+                    </div>
+                    <div class="addon-summary">
+                        <p>Larger Storage</p>
+                        <span>+ $20/yr</span>
+                    </div>
                 </div>
             </div>
-            <p class="price">$9/mo</p>
-        </li>
-
-        <li class="card">
-            <label class="benefit-checkbox">
-                <input type="checkbox">
-            <div class="benefits">
-                <div class="benefits-info">
-                    <h3>Larger Storage</h3>
-                    <p>Extra 1TB of cloud save</p>
+        
+           
+            <div id="total">
+               
+                <div class="total-summary">
+                    <p>Total (per year)</p>
+                    <span>$120/yr</span>
                 </div>
             </div>
-            <p class="price">$12/mo</p>
-        </li>
+        </div>
 
-        <li class="card">
-            <label class="benefit-checkbox">
-                <input type="checkbox">
-            <div class="benefits">
-                <div class="benefits-info">
-                    <h3>Customizable Profile</h3>
-                    <p>Custom theme on your profile</p>
-                </div>
+     
+
+            <div class="buttons">
+                <a href="./step2.html" class="go-back">Go Back</a>
+                <a href="#" class="btn">Confirm</a>
             </div>
-            <p class="price">$15/mo</p>
-        </li>
-    </ul>
-
-    <div class="buttons">
-        <a href="./step2.html" class="go-back">Go Back</a>
-        <a href="#" class="btn">Confirm</a>
+            </div>
     </div>
- </div>
-
-    </div>
-    
-    <script>
-        const planCards = document.querySelectorAll('.card');
-
-            planCards.forEach(card => {
-                card.addEventListener('click', function () {
-                    // Remove 'active' class from all cards
-                    planCards.forEach(card => card.classList.remove('active'));
-
-                    // Add 'active' class to the clicked card
-                    this.classList.add('active');
-                });
-            });
-
-    </script>
 
 </body>
 
